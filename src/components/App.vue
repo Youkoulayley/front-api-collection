@@ -1,15 +1,17 @@
 <template>
-  <v-data-table
-    :headers="headers"
-    :items="items"
-    hide-actions
-    class="elevation-1"
-  >
-    <template slot="items" slot-scope="props">
-      <td>{{ props.item.manufacturer }}</td>
-      <td>{{ props.item.color }}</td>
-    </template>
-  </v-data-table>
+  <v-app>
+    <v-data-table
+      :headers="headers"
+      :items="items"
+      hide-actions
+      class="elevation-1"
+    >
+      <template slot="items" slot-scope="props">
+        <td>{{ props.item.manufacturer }}</td>
+        <td>{{ props.item.color }}</td>
+      </template>
+    </v-data-table>
+  </v-app>
 </template>
 
 <script>
