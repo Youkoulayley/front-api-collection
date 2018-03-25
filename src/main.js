@@ -1,21 +1,22 @@
 import Vue from 'vue'
+import Vuex from 'vuex'
 import Vuetify from 'vuetify'
 import colors from 'vuetify/es5/util/colors'
+import 'vuetify/dist/vuetify.min.css'
 
-import 'vuetify/dist/vuetify.min.css' // Ensure you are using css-loader
+let App = require('./App.vue');
 
-import App from './components/App.vue'
-
+Vue.use(Vuex);
 Vue.use(Vuetify, {
   theme: {
-    primary: colors.blue.base,
-    secondary: colors.grey.darken1,
+    primary: colors.blueGrey.darken4,
+    secondary: colors.blueGrey.darken3,
     accent: colors.shades.black,
-    error: colors.red.accent3
+    error: colors.purple.accent3
   }
-})
+});
 
 new Vue({
   el: '#app',
   render: h => h(App)
-})
+});
