@@ -4,9 +4,8 @@ import Vuetify from 'vuetify'
 import colors from 'vuetify/es5/util/colors'
 import 'vuetify/dist/vuetify.min.css'
 
-let App = require('./App.vue');
-
 Vue.use(Vuex);
+
 Vue.use(Vuetify, {
   theme: {
     primary: colors.blueGrey.darken4,
@@ -18,5 +17,5 @@ Vue.use(Vuetify, {
 
 new Vue({
   el: '#app',
-  render: h => h(App)
+  render: h => h(require('./App.vue').default)
 });

@@ -8,18 +8,18 @@
     <v-list class="pa-1 white--text">
       <v-list-tile avatar>
         <v-list-tile-avatar>
-          <img src="https://randomuser.me/api/portraits/men/85.jpg">
+          <img src="../assets/sorastro-avatar.jpg">
         </v-list-tile-avatar>
         <v-list-tile-content>
-          <v-list-tile-title>John Leider</v-list-tile-title>
+          <v-list-tile-title>Sorastro</v-list-tile-title>
         </v-list-tile-content>
       </v-list-tile>
     </v-list>
-    <v-list class="pt-0" dense>
+    <v-list class="pt-0 white--text" dense>
       <v-divider></v-divider>
       <v-list-tile v-for="item in items" :key="item.title" @click="">
         <v-list-tile-action>
-          <v-icon>{{ item.icon }}</v-icon>
+          <v-icon class="primary--text">{{ item.icon }}</v-icon>
         </v-list-tile-action>
         <v-list-tile-content>
           <v-list-tile-title>{{ item.title }}</v-list-tile-title>
@@ -34,15 +34,18 @@
 
   export default {
     store: store,
-    data: {
-      return: {
-        drawer: null
+    computed: {
+      drawer () {
+        return store.state.drawer
       }
     },
-    methods: {
-      toggle () {
-        this.data.drawer = !this.data.drawer
+    data () {
+      return {
+        items: [
+          {title: 'Assaut sur l\'empire', icon: 'dashboard'},
+          {title: 'Zombicide', icon: 'dashboard'}
+        ]
       }
-    }
+    },
   }
 </script>

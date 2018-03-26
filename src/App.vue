@@ -4,7 +4,7 @@
                fixed
                clipped-left
                app>
-      <v-toolbar-side-icon></v-toolbar-side-icon>
+      <v-toolbar-side-icon @click="toggle"></v-toolbar-side-icon>
       <v-toolbar-title class="white--text">Creatutor</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-text-field
@@ -28,12 +28,17 @@
 
 <script>
   import NavigationDrawer from './components/NavigationDrawer.vue'
+  import NavigationDrawerStore from './stores/NavigationDrawerStore.js'
 
   export default {
+    stores: NavigationDrawerStore,
     components: {
       NavigationDrawer
     },
     methods: {
+      toggle () {
+        NavigationDrawerStore.commit('toggle')
+      }
     }
   }
 </script>
