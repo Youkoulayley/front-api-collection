@@ -1,6 +1,5 @@
 <template>
   <v-navigation-drawer class="secondary"
-    fixed
     clipped
     v-model="drawer"
     app
@@ -15,17 +14,26 @@
         </v-list-tile-content>
       </v-list-tile>
     </v-list>
-    <v-list class="pt-0 white--text" dense>
       <v-divider></v-divider>
-      <v-list-tile v-for="item in items" :key="item.title" @click="">
-        <v-list-tile-action>
-          <v-icon class="primary--text">{{ item.icon }}</v-icon>
-        </v-list-tile-action>
-        <v-list-tile-content>
-          <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-        </v-list-tile-content>
-      </v-list-tile>
-    </v-list>
+      <v-list class="white--text">
+        <v-list-group
+          v-model="item.active"
+          v-for="item in items"
+          :key="item.title"
+          no-action
+        >
+          <v-list-tile slot="activator">
+            <v-list-tile-content>
+              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+          <v-list-tile v-for="episode in item.episodes" :key="episode.name" @click="">
+            <v-list-tile-content>
+              <v-list-tile-title>{{episode.num }} - {{ episode.name }}</v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+        </v-list-group>
+      </v-list>
   </v-navigation-drawer>
 </template>
 
@@ -42,8 +50,22 @@
     data () {
       return {
         items: [
-          {title: 'Assaut sur l\'empire', icon: 'dashboard'},
-          {title: 'Zombicide', icon: 'dashboard'}
+          {title: 'Blood Rage', icon: 'dashboard'},
+          {title: 'Descent', icon: 'dashboard'},
+          {title: 'Miscellany', icon: 'dashboard'},
+          {title: 'Runewars', icon: 'dashboard'},
+          {title: 'Scenery', icon: 'dashboard'},
+          {
+            title: 'Star Wars : Imperial assault',
+            icon: 'dashboard',
+            episodes : [
+                {num: 1, name: 'Goku'},
+                {num: 2, name: 'Gohan' }
+              ]
+          },
+          {title: 'Star Wars : Legion', icon: 'dashboard'},
+          {title: 'Zombicide : Black Plague', icon: 'dashboard'},
+          {title: 'Zombie', icon: 'dashboard'}
         ]
       }
     },

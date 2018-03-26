@@ -1,47 +1,25 @@
 <template>
   <v-app>
-    <v-toolbar dark color="primary"
-               fixed
-               clipped-left
-               app>
-      <v-toolbar-side-icon @click="toggle"></v-toolbar-side-icon>
-      <v-toolbar-title class="white--text">Creatutor</v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-text-field
-        prepend-icon="search"
-        label="Search"
-        solo-inverted
-        class="mx-3"
-        flat
-      ></v-text-field>
-      <v-spacer></v-spacer>
-      <v-btn flat>
-        Register
-      </v-btn>
-      <v-btn flat>
-        Login
-      </v-btn>
-    </v-toolbar>
+    <v-header></v-header>
     <navigation-drawer></navigation-drawer>
+    <v-content>
+      <router-view></router-view>
+    </v-content>
   </v-app>
 </template>
 
 <script>
+  import VHeader from './components/Header.vue'
   import NavigationDrawer from './components/NavigationDrawer.vue'
-  import NavigationDrawerStore from './stores/NavigationDrawerStore.js'
 
   export default {
-    stores: NavigationDrawerStore,
     components: {
-      NavigationDrawer
-    },
-    methods: {
-      toggle () {
-        NavigationDrawerStore.commit('toggle')
-      }
+      VHeader, NavigationDrawer
     }
   }
+
 </script>
+
 
 <style lang="scss">
 </style>
