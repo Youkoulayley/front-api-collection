@@ -2,9 +2,7 @@
   <v-app>
     <v-header></v-header>
     <navigation-drawer></navigation-drawer>
-    <v-content>
-      <router-view></router-view>
-    </v-content>
+    <router-view></router-view>
   </v-app>
 </template>
 
