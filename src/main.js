@@ -12,6 +12,8 @@ Vue.use(Vuetify, {
   theme: {
     primary: colors.blueGrey.darken4,
     secondary: colors.blueGrey.darken3,
+    scolor1: colors.yellow.darken1,
+    scolor2: colors.purple.darken1,
     accent: colors.shades.black,
     error: colors.purple.accent3
   }

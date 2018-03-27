@@ -1,34 +1,37 @@
 <template>
-  <v-expansion-panel>
-    <v-expansion-panel-content v-for="(item,i) in 5" :key="i">
-      <div slot="header">Item</div>
+  <v-layout>
+    <v-flex v-for="tuto in tutos">
       <v-card>
-        <v-card-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</v-card-text>
+        <v-card-media :src="tuto.img" height="200px">
+        </v-card-media>
+        <v-card-title primary-title>
+          <div>
+            <h3 class="headline mb-0">{{ tuto.title }}</h3>
+            <div>{{ tuto.description }}</div>
+          </div>
+        </v-card-title>
+        <v-card-actions>
+          <v-btn color="scolor1">Share</v-btn>
+          <v-btn color="scolor2">Explore</v-btn>
+        </v-card-actions>
       </v-card>
-    </v-expansion-panel-content>
-    <v-expansion-panel-content v-for="(item,i) in 5" :key="i">
-      <div slot="header">Item</div>
-      <v-card>
-        <v-card-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</v-card-text>
-      </v-card>
-    </v-expansion-panel-content>
-    <v-expansion-panel-content v-for="(item,i) in 5" :key="i">
-      <div slot="header">Item</div>
-      <v-card>
-        <v-card-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</v-card-text>
-      </v-card>
-    </v-expansion-panel-content>
-    <v-expansion-panel-content v-for="(item,i) in 5" :key="i">
-      <div slot="header">Item</div>
-      <v-card>
-        <v-card-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</v-card-text>
-      </v-card>
-    </v-expansion-panel-content>
-    <v-expansion-panel-content v-for="(item,i) in 5" :key="i">
-      <div slot="header">Item</div>
-      <v-card>
-        <v-card-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</v-card-text>
-      </v-card>
-    </v-expansion-panel-content>
-  </v-expansion-panel>
+    </v-flex>
+  </v-layout>
 </template>
+
+<script>
+  export default {
+    data () {
+      return {
+        tutos: [
+          {title: 'Test', description: 'Lorem ipsum dolor sit amet', img: 'https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.cloudsigma.com%2Fwp-content%2Fuploads%2Fgolang-cloud-driver.png&f=1'},
+          {title: 'Test', description: 'Lorem ipsum dolor sit amet', img: 'https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.cloudsigma.com%2Fwp-content%2Fuploads%2Fgolang-cloud-driver.png&f=1'},
+          {title: 'Test', description: 'Lorem ipsum dolor sit amet', img: 'https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.cloudsigma.com%2Fwp-content%2Fuploads%2Fgolang-cloud-driver.png&f=1'},
+          {title: 'Test', description: 'Lorem ipsum dolor sit amet', img: 'https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.cloudsigma.com%2Fwp-content%2Fuploads%2Fgolang-cloud-driver.png&f=1'},
+          {title: 'Test', description: 'Lorem ipsum dolor sit amet', img: 'https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.cloudsigma.com%2Fwp-content%2Fuploads%2Fgolang-cloud-driver.png&f=1'},
+          {title: 'Test', description: 'Lorem ipsum dolor sit amet', img: 'https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.cloudsigma.com%2Fwp-content%2Fuploads%2Fgolang-cloud-driver.png&f=1'}
+        ]
+      }
+    }
+  }
+</script>
