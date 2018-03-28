@@ -1,13 +1,11 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import VueRouter from 'vue-router'
 import Vuetify from 'vuetify'
 import colors from 'vuetify/es5/util/colors'
 import 'vuetify/dist/vuetify.min.css'
+import Router from './router/router.js'
 
 Vue.use(Vuex);
-Vue.use(VueRouter);
-
 Vue.use(Vuetify, {
   theme: {
     primary: colors.blueGrey.darken4,
@@ -19,17 +17,8 @@ Vue.use(Vuetify, {
   }
 });
 
-const routes = [
-  { path: '/', component: require('./pages/Home.vue').default }
-];
-
-const router = new VueRouter({
-  routes,
-  mode: 'history'
-});
-
 new Vue({
-  router,
+  router: Router,
   el: '#app',
   render: h => h(require('./App.vue').default)
 });

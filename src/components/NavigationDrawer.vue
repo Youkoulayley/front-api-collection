@@ -1,7 +1,7 @@
 <template>
   <v-navigation-drawer class="secondary"
     clipped
-    v-model="drawer"
+    :value="drawer"
     app
   >
     <v-list class="pa-1 white--text">
@@ -59,8 +59,8 @@
             title: 'Star Wars : Imperial assault',
             icon: 'dashboard',
             episodes : [
-                {num: 1, name: 'Goku'},
-                {num: 2, name: 'Gohan' }
+                {num: 1, name: 'Stormtroopers'},
+                {num: 2, name: 'Probe Droids' }
               ]
           },
           {title: 'Star Wars : Legion', icon: 'dashboard'},
