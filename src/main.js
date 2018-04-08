@@ -4,8 +4,10 @@ import Vuetify from 'vuetify'
 import colors from 'vuetify/es5/util/colors'
 import 'vuetify/dist/vuetify.min.css'
 import Router from './router/router.js'
+import VueResource from 'vue-resource';
 
 Vue.use(Vuex);
+Vue.use(VueResource);
 Vue.use(Vuetify, {
   theme: {
     primary: colors.blueGrey.darken4,
@@ -16,6 +18,8 @@ Vue.use(Vuetify, {
     error: colors.purple.accent3
   }
 });
+
+Vue.http.options.root = 'http://localhost:8081';
 
 new Vue({
   router: Router,

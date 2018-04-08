@@ -1,21 +1,54 @@
 <template>
-  <v-carousel>
-    <v-carousel-item v-for="(item,i) in items" :src="item.src" :key="i">
-    </v-carousel-item>
-  </v-carousel>
+  <v-data-table
+    :headers="headers"
+    :items="roles"
+    hide-actions
+    class="elevation-1"
+  >
+    <template slot="items" slot-scope="props">
+      <td>{{ props.item.id }}</td>
+      <td>{{ props.item.name }}</td>
+      <td>{{ props.item.description }}</td>
+      <td>{{ props.item.created_at }}</td>
+      <td>{{ props.item.updated_at }}</td>
+      <td>{{ props.item.deleted_at }}</td>
+      <v-btn color="red" dark  v-on:click="roleDelete(props.item.id)">
+        <v-icon dark left>remove_circle</v-icon>Delete
+      </v-btn>
+    </template>
+  </v-data-table>
 </template>
 
 <script>
-  export default {
-    data () {
-      return {
-        items: [
-          { src: 'https://lemag.nikonclub.fr/wp-content/uploads/2016/11/Photo-selection-pour-Nikon-France-Mattia-Bonavida-2016-8.jpg' },
-          { src: 'https://lemag.nikonclub.fr/wp-content/uploads/2016/11/Photo-selection-pour-Nikon-France-Mattia-Bonavida-2016-8.jpg' },
-          { src: 'https://lemag.nikonclub.fr/wp-content/uploads/2016/11/Photo-selection-pour-Nikon-France-Mattia-Bonavida-2016-8.jpg' },
-          { src: 'https://lemag.nikonclub.fr/wp-content/uploads/2016/11/Photo-selection-pour-Nikon-France-Mattia-Bonavida-2016-8.jpg' },
-        ]
-      }
+export default {
+  data(){
+    return{
+      roles: [],
+      headers: [
+        { text: 'id', value: 'id' },
+        { text: 'Role Name', value: 'name' },
+        { text: 'Description', value: 'description' },
+        { text: 'Created At', value: 'created_at' },
+        { text: 'Updated At', value: 'updated_at' },
+        { text: 'Deleted At', value: 'deleted_at' }
+      ],
+    }
+  },
+  mounted: function() {
+    this.rolesGetAll();
+  },
+  methods: {
+    rolesGetAll() {
+      this.$http.get('roles').then((response) => {
+        console.log(response.body);
+        this.roles = response.body;
+      });
+    },
+    roleDelete(id) {
+      this.$http.delete('roles/' + id).then((response) => {
+        // Add notification status
+      });
     }
   }
+}
 </script>
