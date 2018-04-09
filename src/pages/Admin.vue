@@ -1,22 +1,9 @@
 <template>
-  <v-data-table
-    :headers="headers"
-    :items="roles"
-    hide-actions
-    class="elevation-1"
-  >
-    <template slot="items" slot-scope="props">
-      <td>{{ props.item.id }}</td>
-      <td>{{ props.item.name }}</td>
-      <td>{{ props.item.description }}</td>
-      <td>{{ props.item.created_at }}</td>
-      <td>{{ props.item.updated_at }}</td>
-      <td>{{ props.item.deleted_at }}</td>
-      <v-btn color="red" dark  v-on:click="roleDelete(props.item.id)">
-        <v-icon dark left>remove_circle</v-icon>Delete
-      </v-btn>
-    </template>
-  </v-data-table>
+  <div>
+    <router-link :to="{ name: 'admin.roles'}">
+      <v-btn outline color="indigo">Roles</v-btn>
+    </router-link>
+  </div>
 </template>
 
 <script>
